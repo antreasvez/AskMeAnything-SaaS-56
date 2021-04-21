@@ -10,6 +10,8 @@ app.use(cors());
 app.use(express.json());
 
 //Routes
+
+// Create New User
 app.post("/Users", async(req,res)=>{
   try{
     console.log(req.body);
@@ -27,6 +29,45 @@ app.post("/Users", async(req,res)=>{
   }
 });
 
+// Get a user
+
+app.get("/Users/:id",async (req,res)=>{
+  try{
+    const { id } = req.params;
+    const user = await pool.query("SELECT username,email FROM users WHERE uid = $1",[
+      id
+    ]);
+    console.log(user.rows);
+  }
+  catch(err){
+    console.error(err.message);
+  }
+});
+
+
+//User login
+
+app.post('/Users/login',async (req,res)=> {
+  const user = await pool.query("SELECT * FROM users WHERE username = $1",[
+    req.body.username
+  ]);
+  try{
+    if (user.rows[0].username == null){
+
+      return res.send('User not found')
+    }
+    if(await bcrypt.compare(req.body.password,user.rows[0].password)){
+      console.log('User Logged In')
+      res.send('Success')
+    }
+    else{
+      res.send('Wrong Password')
+    }
+  }
+  catch(err){
+    console.error(err.message);
+  }
+});
 
 app.listen(5000, () => {
   console.log("Server is live on 5000");
