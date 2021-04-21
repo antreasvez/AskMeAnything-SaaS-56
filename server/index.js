@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-const pool = require("./db")
+const pool = require("./db");
 const bcrypt = require("bcryptjs");
 
 //middleware
@@ -51,6 +51,7 @@ app.post('/Users/login',async (req,res)=> {
   const user = await pool.query("SELECT * FROM users WHERE username = $1",[
     req.body.username
   ]);
+  console.log(req.body)
   try{
     if (user.rows[0].username == null){
 
