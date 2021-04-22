@@ -1,27 +1,33 @@
 const express = require("express");
-const app = express.Router();
-const cors = require("cors");
+const app =  express.Router();
 const pool = require("../db");
 const bcrypt = require("bcryptjs");
-
-app.use(express.json());
-
+const jwtGenerator = require("../utils/jwtGenerator");
 // Create New User
+
 app.post("/Users", async(req,res)=>{
     try{
-      console.log(req.body);
       const {username,password,email} = req.body;
+      const user = await pool.query("SELECT * FROM users WHERE email = $1", [
+        email
+      ]);
+
+      if (user.rows.length > 0) {
+        return res.status(401).json("User already exist!");
+      }
+
       const Salt = await bcrypt.genSalt();
-      const HashedPass = await Promise.all([bcrypt.hash(password, Salt)]);
+      const HashedPassword = await Promise.all([bcrypt.hash(password, Salt)]);
       const newUser = await pool.query(
-        "INSERT INTO users (username,password,email) VALUES ($1,$2,$3)",
-        [username, HashedPass[0],email]
+        "INSERT INTO users (username,password,email) VALUES ($1,$2,$3) RETURNING *",
+        [username, HashedPassword[0],email]
       );
-  
+      const jwtToken = jwtGenerator(newUser.rows[0].uid);
+      return res.json({ jwtToken });
     }
     catch(err){
       console.error(err.message);
-      console.log("greetins");
+      res.status(500).send("Server error"); 
     }
 });
 
@@ -30,10 +36,11 @@ app.post("/Users", async(req,res)=>{
 app.get("/Users/:id",async (req,res)=>{
     try{
       const { id } = req.params;
-      const user = await pool.query("SELECT username,email FROM users WHERE uid = $1",[
+      const user = await pool.query("SELECT username,password,email FROM users WHERE uid = $1",[
         id
       ]);
-      console.log(user.rows);
+      data = user.rows;
+      return res.json({data});
     }
     catch(err){
       console.error(err.message);
