@@ -3,7 +3,6 @@ const app =  express.Router();
 const pool = require("../db");
 const bcrypt = require("bcryptjs");
 const jwtGenerator = require("../utils/jwtGenerator");
-const validInfo = require("../middleware/validInfo");
 
 app.post('/Users/login', async (req,res)=> {
   
