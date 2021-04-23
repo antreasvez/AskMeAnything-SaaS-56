@@ -45,21 +45,22 @@ function Home() {
             <Typography variant="h6" className={classes.title}>
               Ask Me Anything
             </Typography>
-            <Popup
+            <Button color="inherit" href="/login">Login</Button>
+            {/* <Popup
             trigger={open =><Button color="inherit" >Login</Button>}
             modal
             >
               <SignIn/>
-            </Popup>
+            </Popup> */}
           </Toolbar>
         </AppBar>
       </div>
         <BottomNavigation style={{ backgroundColor: "#263238" }}>
-          <BottomNavigationAction label="About" href="/sela" value="recents" showLabel="true" icon={< InfoIcon  style={{ color: "#006064" }}/>} />
-          <BottomNavigationAction label="Contact Us" href="url" showLabel="true" value="favorites" icon={<EmailIcon />} />
-          <BottomNavigationAction label="Project Documentation" showLabel="true" href="url" value="nearby" icon={<DescriptionIcon />} />
-          <BottomNavigationAction label="Link to Github" href="url" showLabel="true" value="folder" icon={<GitHubIcon />} />
-          <BottomNavigationAction label="Course Material" href="url" showLabel="true" value="folder" icon={<FolderIcon />} />
+          <BottomNavigationAction label="About" href="/" value="recents" showLabel="true" icon={< InfoIcon  style={{ color: "#006064" }}/>} />
+          <BottomNavigationAction label="Contact Us" href="/" showLabel="true" value="favorites" icon={<EmailIcon />} />
+          <BottomNavigationAction label="Project Documentation" showLabel="true" href="/" value="nearby" icon={<DescriptionIcon />} />
+          <BottomNavigationAction label="Link to Github" href="/" showLabel="true" value="folder" icon={<GitHubIcon />} />
+          <BottomNavigationAction label="Course Material" href="/" showLabel="true" value="folder" icon={<FolderIcon />} />
         </BottomNavigation>
     </div>
     
