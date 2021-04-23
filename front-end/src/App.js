@@ -1,6 +1,5 @@
 import './App.css';
-import SignIn from './SignIn';
-import Home from './Home';
+import Home from './components/Home';
 function App() {
   return (
     <div className="App">
