@@ -45,7 +45,8 @@ function Home() {
             <Typography variant="h6" className={classes.title}>
               Ask Me Anything
             </Typography>
-            <Button color="inherit" href="/login">Login</Button>
+            <Button color="inherit" href="/login">SignIn</Button>
+            <Button color="inherit" href="/SignUp">SignUp</Button>
             {/* <Popup
             trigger={open =><Button color="inherit" >Login</Button>}
             modal

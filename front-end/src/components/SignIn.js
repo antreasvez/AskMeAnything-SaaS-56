@@ -63,7 +63,7 @@ function SignIn() {
               Ask Me Anything 
             </Typography>
             <Typography component="h1" variant="h5">
-              Log In
+              Sign In
             </Typography>
             <form className={classes.form} noValidate>
               <TextField
