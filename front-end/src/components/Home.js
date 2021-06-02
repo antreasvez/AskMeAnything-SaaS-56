@@ -60,7 +60,7 @@ function Home() {
           <BottomNavigationAction label="Contact Us" href="/" showLabel="true" value="favorites" icon={<EmailIcon />} />
           <BottomNavigationAction label="Project Documentation" showLabel="true" href="/" value="nearby" icon={<DescriptionIcon />} />
           <BottomNavigationAction label="Link to Github" href="/" showLabel="true" value="folder" icon={<GitHubIcon />} />
-          <BottomNavigationAction label="Course Material" href="/" showLabel="true" value="folder" icon={<FolderIcon />} />
+          <BottomNavigationAction label="Course Material" href="/AskQuestion" showLabel="true" value="folder" icon={<FolderIcon />} />
         </BottomNavigation>
     </div>
     
