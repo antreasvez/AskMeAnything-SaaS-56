@@ -10,13 +10,13 @@ CREATE TABLE users (
 CREATE TABLE questions (
     questionID serial PRIMARY KEY,
     description varchar(1000),
-    date DATETIME
+    date TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 );
 
 CREATE TABLE answers (
     answerID serial PRIMARY KEY,
     description varchar(1000),
-    date DATETIME
+    date TIMESTAMPTZ NOT NULL DEFAULT NOW()
 );
 
 CREATE TABLE keyword (

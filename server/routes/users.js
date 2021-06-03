@@ -3,13 +3,14 @@ const app =  express.Router();
 const pool = require("../db");
 const bcrypt = require("bcryptjs");
 const jwtGenerator = require("../utils/jwtGenerator");
+
 // Create New User
 
 app.post("/Users", async(req,res)=>{
     try{
       const {username,password,email} = req.body;
-      const user = await pool.query("SELECT * FROM users WHERE email = $1", [
-        email
+      const user = await pool.query("SELECT * FROM users WHERE email = $1 OR username = $2", [
+        email,username
       ]);
 
       if (user.rows.length > 0) {
@@ -22,8 +23,9 @@ app.post("/Users", async(req,res)=>{
         "INSERT INTO users (username,password,email) VALUES ($1,$2,$3) RETURNING *",
         [username, HashedPassword[0],email]
       );
+      const ID = newUser.rows[0].uid;
       const jwtToken = jwtGenerator(newUser.rows[0].uid);
-      return res.json({ jwtToken });
+      return res.json({ ID,jwtToken });
     }
     catch(err){
       console.error(err.message);
@@ -33,12 +35,15 @@ app.post("/Users", async(req,res)=>{
 
 //get a user
 
-app.get("/Users/:id",async (req,res)=>{
+app.get("/Users/sela/:id",async (req,res)=>{
     try{
       const { id } = req.params;
       const user = await pool.query("SELECT username,password,email FROM users WHERE uid = $1",[
         id
       ]);
+      if (user.rows.length == 0){
+        return res.json("User not found");
+      }
       data = user.rows;
       return res.json({data});
     }
