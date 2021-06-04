@@ -51,6 +51,8 @@ app.use((req, res, next) => {
 });
 
 
+// app.use("/", require("./routes/users"));
+// app.use("/", require("./routes/login"));
 app.listen(4200, () => {
   console.log("Server is live on 4200 monkas");
 });
@@ -75,7 +77,7 @@ app.use("/logout", require("./routes/logout.js"));
 //   return res.render('panigiraki.ejs');
 // });
 
-app.get("/spiti", (req,res) => {
-  return res.render('spiti.ejs');
-});
+// app.get("/spiti", (req,res) => {
+//   return res.render('spiti.ejs');
+// });
 
