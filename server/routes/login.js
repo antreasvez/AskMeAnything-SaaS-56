@@ -1,37 +1,54 @@
 const express = require("express");
-const app =  express.Router();
-const pool = require("../db");
+const router = express.Router();
+const pool = require("./../db");
 const bcrypt = require("bcryptjs");
-const jwtGenerator = require("../utils/jwtGenerator");
+require('dotenv').config();
 
-app.get("/Users/login", (req,res) => {
-  return res.render("signIn.ejs")
-})
-app.post('/Users/login', async (req,res)=> {
-  
-  try{
-    const user = await pool.query("SELECT * FROM users WHERE username = $1",[
-      req.body.username
-    ]);
-    console.log(user)
-    if (user.rows.length === 0) {
-      // return res.status(401).json(user);
-      return res.status(401).json("Invalid Credential");
-    }
-    if(await bcrypt.compare(req.body.password,user.rows[0].password)){
-      console.log('User Logged In')
-      const ID =  user.rows[0].uid;
-      const jwtToken = jwtGenerator(user.rows[0].uid);
-      // return res.json({ ID,jwtToken });
-      res.redirect('/Users/login')
-    }
-    else{
-      return res.status(401).json("Invalid Credential");
-    }
+//ROUTER
+
+router.get("/", (req,res) => {
+  if (req.session.isLoggedIn){
+    return res.redirect("/");
   }
-  catch(err){
+  return res.render("signin.ejs", {successMessage: req.flash("successMessage"), errorMessage: req.flash("errorMessage")})
+})
+
+
+router.post("/", async (req, res) => {
+  try {
+    // console.log(req.body);
+    const { username, password } = req.body;
+    const checkusername = await pool.query(
+      'SELECT * FROM users WHERE username = $1',
+      [username]
+    );
+
+    if (checkusername.rows.length === 0){ //user does not exist
+      // return res.status(401).json({Message: "User with that mail does not exist"})
+      req.flash("errorMessage", "A user with this username doesn't exist");
+      return res.redirect("/signin");
+    }
+
+    const checkpassword = await bcrypt.compare(password, checkusername.rows[0].password);
+    if (!checkpassword){
+      return res.status(401).json({Message: "User's username and password do not match"});
+    }
+
+
+    req.session.isLoggedIn = true;
+    req.session.user = {
+      id: checkusername.rows[0].user_id,
+      email: email
+    }
+    req.flash("successMessage", "Successful Login")
+    return res.redirect("/");
+
+
+  } catch (err) {
+    //res.status(401).json({ Message: "User with that mail does not exist" });
     console.error(err.message);
+    res.status(500).send("Server Error");
   }
 });
 
-module.exports = app;
+module.exports = router;
