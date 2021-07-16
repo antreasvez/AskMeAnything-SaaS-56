@@ -66,7 +66,15 @@ app.listen(4200, () => {
 app.get("/", (req,res) => {
   return res.render('home.ejs');
 });
-
+app.get("/signup", (req,res) => {
+  return res.render('signup.ejs');
+});
+app.get("/login", (req,res) => {
+  return res.render('login.ejs');
+});
+// app.get("/", (req,res) => {
+//   return res.render('home.ejs');
+// });
 app.use("/signup", require("./routes/signup.js"));
 
 app.use("/login", require("./routes/login.js"));
