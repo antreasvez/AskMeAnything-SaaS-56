@@ -8,7 +8,6 @@ require('dotenv').config();
 router.post("/", async (req, res) => {
   try {
     const { email, password } = req.body;
-
     if (email.length === 0 || password.length === 0){
         return res.status(400).json({Message: "Fill all fields!"})
     }
@@ -17,7 +16,6 @@ router.post("/", async (req, res) => {
       "SELECT * FROM users WHERE email = $1",
       [email]
     );
-
     if (checkuseremail.rows.length === 0){ //wrong email
       return res.status(401).json({Message: "Wrong Email"})
     }
@@ -29,12 +27,11 @@ router.post("/", async (req, res) => {
     
     //creating token
     const payload = {
-      user: checkuseremail.rows[0].userID,
+      user: checkuseremail.rows[0].userid,
       email: checkuseremail.rows[0].email
     }
     token = jwt.sign(payload, process.env.jwtSecret, {expiresIn: 3600});
     res.json({token});
-
 
   } catch (err) {
     console.error(err.message);
