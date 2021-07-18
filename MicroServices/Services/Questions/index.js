@@ -9,6 +9,9 @@ app.use(express.urlencoded({ extended: true }));
 // Post a Question
 app.use("/postQuestion", require("./routes/postQuestion.js"));
 
+// Get all questions
+app.use("/getQuestions", require("./routes/getQuestions.js"));
+
 
 //Port
 const port = process.env.PORT || 5001;
