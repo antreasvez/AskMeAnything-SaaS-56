@@ -23,9 +23,8 @@ router.post("/", async (req, res) => {
       [username]
     );
 
-    if (checkusername.rows.length === 0){ //user does not exist
-      // return res.status(401).json({Message: "User with that mail does not exist"})
-      req.flash("errorMessage", "A user with this username doesn't exist");
+    if (checkusername.rows.length === 0){ 
+      console.log("user doesn't exist");
       return res.redirect("/login");
     }
 
@@ -40,12 +39,12 @@ router.post("/", async (req, res) => {
       id: checkusername.rows[0].user_id,
       username: username
     }
-    req.flash("successMessage", "Successful Login")
+    
+
     return res.redirect("/");
 
 
   } catch (err) {
-    //res.status(401).json({ Message: "User with that mail does not exist" });
     console.error(err.message);
     res.status(500).send("Server Error");
   }
