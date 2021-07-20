@@ -10,7 +10,7 @@ router.get("/", (req,res) => {
   if (req.session.isLoggedIn){
     return res.redirect("/");
   }
-  return res.render("signup.ejs", {errorMessage: req.flash("successMessage")})
+  return res.render("signup.ejs")
 })
 
 router.post("/", async (req, res) => {
@@ -18,7 +18,7 @@ router.post("/", async (req, res) => {
     const { username, email, password1, password2 } = req.body;
     console.log(req.body)
     if (password1 !== password2){
-      req.flash("successMessage", "passwords dont match")
+      // req.flash("successMessage", "passwords dont match")
       return res.redirect("/signup")
     }
 
@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
     );
 
 
-    req.flash("successMessage", "Successful Signup")
+    // req.flash("successMessage", "Successful Signup")
     return res.redirect("/login");
 
 

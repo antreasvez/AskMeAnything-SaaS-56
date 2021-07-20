@@ -19,9 +19,9 @@ try{
 });
 
 //get a specific question
-router.get("/perID", async (req,res) => {
+router.get("/:id", async (req,res) => {
   try{
-    const { questionID } = req.body;
+    const questionID = req.params.id;
     const question = await pool.query(
         "SELECT * FROM questions where questionID=$1;",
         [questionID]

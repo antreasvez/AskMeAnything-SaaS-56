@@ -16,6 +16,9 @@ app.use(express.urlencoded({extended: true}));
 app.set("view engine", "ejs")
 app.set("views","views")
 
+//static
+app.use(express.static("static"));
+
 
 const sessionDBaccess = new sessionPool({
   user: "postgres",
@@ -64,7 +67,7 @@ app.listen(4200, () => {
 // });
 
 app.get("/", (req,res) => {
-  return res.render('home.ejs');
+  return res.render('index.ejs');
 });
 app.get("/signup", (req,res) => {
   return res.render('signup.ejs');
@@ -80,6 +83,8 @@ app.use("/signup", require("./routes/signup.js"));
 app.use("/login", require("./routes/login.js"));
 
 app.use("/logout", require("./routes/logout.js"));
+
+app.use("/askquestion", require("./routes/askquestion.js"));
 
 // app.get("/panigiraki", (req,res) => {
 //   return res.render('panigiraki.ejs');
