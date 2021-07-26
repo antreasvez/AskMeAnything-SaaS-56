@@ -36,7 +36,7 @@ router.post("/", async (req, res) => {
 
     req.session.isLoggedIn = true;
     req.session.user = {
-      id: checkusername.rows[0].user_id,
+      id: checkusername.rows[0].uid,
       username: username
     }
     

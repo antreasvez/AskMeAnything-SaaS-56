@@ -5,34 +5,33 @@ require('dotenv').config();
 
 router.get("/", (req,res) => {
 
-    if (!req.session.loggedIn){
-        return res.redirect("/signin");
+    if (!req.session.isLoggedIn){
+        return res.redirect("/login");
     }
 
-    return res.render("questionscreate.ejs");
+    //optional, redirect if not logged in, to be decieded
+
+    return res.render("askquestion.ejs");
 });
 
 router.post("/", async (req, res) => {
     try {
-        const {title, information, keywords} = req.body;
+        const {question, information, keywords} = req.body;
 
-        
         var tags = keywords.replace(/\s/g, '')
-
         tags = tags.split(",");
 
-        var user_id = req.session.user.id;
+        var uid = req.session.user.id;
 
-        var newquestion = await pool.query(
-            "INSERT INTO questions(user_id, title, question_text, keywords) VALUES ($1, $2, $3, $4) RETURNING *;",
-            [user_id, title, information, tags]
+        var askQ = await pool.query(
+            "INSERT INTO questions(uid, question, information, tags) VALUES ($1, $2, $3, $4) RETURNING *;",
+            [uid, question, information, tags]
         )
         
         return res.redirect("/");
         
-
-    } catch (e) {
-        console.log(e.message);
+    } catch (error) {
+        console.log(error.message);
         res.status(500).send("Server Error");
     }
 });

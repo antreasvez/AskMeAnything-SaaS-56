@@ -13,23 +13,27 @@
     <nav>
         <p class="navTitle">ASK A QUESTION</p>
         <div class="signDiv">
+            <% if (!loggedIn) { %>
             <a href="/login" class="login">Log in</a>
             <a href="/signup" class="signup">Sign up</a>
+            <% } %>
         </div>
+
+    
 
     </nav>
     <main>
 
         <form action="/askquestion" method="POST" class="askQuestionForm">
             <label for="askQuestion-title">
-                <b>Title</b> <br>be specific and imagine you're asking a question to another person
+                <b>Question</b> <br>be specific and imagine you're asking a question to another person
             </label>
-            <input type="text" id="askQuestion-title" name="title"
+            <input type="text" id="askQuestion-title" name="question"
                 placeholder="e.g. how can you calculate the mass of the sun?">
             <label for="askQuestion-body">
-                <b>Body</b> <br>Include all the information someone would need to answer your question
+                <b>Information</b> <br>Include all the information someone would need to answer your question
             </label>
-            <textarea name="question" id="askQuestion-body cols=" 30" rows="10"></textarea>
+            <textarea name="information" id="askQuestion-body cols=" 30" rows="10"></textarea>
             <label for="askQuestion-tags">
                 <b>Tags</b> <br>Add up to 5 tags to describe what your question is about
             </label>
