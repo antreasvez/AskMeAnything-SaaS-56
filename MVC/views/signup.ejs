@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sıgn Up</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <nav>
+        <p class="navTitle">SIGN UP</p>
+        <div class="signDiv">
+            <a href="/login" class="login">Log In</a>
+            <a href="/signup" class="signup">Sign Up</a>
+        </div>
+
+    </nav>
+    <main>
+        
+        <form action="/signup" method="POST" class="loginForm">
+            <label for="signup-username">
+                Username
+            </label>
+            <input type="text" id="signup-username" name="username">
+            <label for="signup-email">
+                Email
+            </label>
+            <input type="email" id="signup-email" name="email">
+            <label for="signup-password">
+                Password
+            </label>
+            <input type="password" id="signup-password" name="password1">
+            <label for="signup-password2" id="signup-password2">
+                Repeat Password
+            </label>
+            <input type="password" id="signup-password2" name="password2">
+            <button type="submit">Sign up</button>
+        </form>
+       
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>
