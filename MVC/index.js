@@ -86,6 +86,8 @@ app.use("/logout", require("./routes/logout.js"));
 
 app.use("/askquestion", require("./routes/askquestion.js"));
 
+app.use("/listquestions", require("./routes/listquestions.js"));
+
 // app.get("/panigiraki", (req,res) => {
 //   return res.render('panigiraki.ejs');
 // });
