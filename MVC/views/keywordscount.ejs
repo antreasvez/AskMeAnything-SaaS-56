@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions per Keyword</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <nav>
+        <p class="navTitle">Questions Per Keyword</p>
+        <div class="signDiv">
+            <% if (!loggedIn) { %>
+            <a href="/login" class="login">Log in</a>
+            <a href="/signup" class="signup">Sign up</a>
+            <% } %>
+        </div>
+
+    
+
+    </nav>
+    <main>
+
+        <div class="container">
+            <canvas id="qpk" width="600" height="600"></canvas>
+        </div>
+
+        <script>
+            let qpk = document.getElementById('qpk').getContext('2d');
+
+            let qpkChart = new Chart(qpk, {
+
+                type: 'bar',
+                data: {
+                    labels: ['<%= tags[0].tag %>', '<%= tags[1].tag %>', '<%= tags[2].tag %>', '<%= tags[3].tag %>', '<%= tags[4].tag %>', '<%= tags[5].tag %>', '<%= tags[6].tag %>'],
+                    datasets: [{
+                        label: 'Popular keywords by count',
+                        data: ['<%= tags[0].count %>', '<%= tags[1].count %>', '<%= tags[2].count %>', '<%= tags[3].count %>', '<%= tags[4].count %>', '<%= tags[5].count %>', '<%= tags[6].count %>'],
+                        backgroundColor: [
+                            'rgba(6, 59, 255, 0.73)',
+                            'rgba(23, 81, 217, 0.71)',
+                            'rgba(30, 91, 207, 0.69)',
+                            'rgba(38, 121, 209, 0.56)',
+                            'rgba(24, 123, 196, 0.34)',
+                            'rgba(31, 121, 189, 0.32)',                           
+                        ],
+                        borderColor: [
+                            'rgba(6, 59, 255, 1)',
+                            'rgba(23, 81, 217, 1)',
+                            'rgba(30, 91, 207, 1)',
+                            'rgba(38, 121, 209, 1)',
+                            'rgba(24, 123, 196, 1)',
+                            'rgba(31, 121, 189, 1)',
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                stepSize: 1
+                            }
+                        }]
+                    }
+                }
+
+            });
+
+
+
+        </script>
+       
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>

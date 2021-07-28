@@ -90,6 +90,8 @@ app.use("/questions", require("./routes/listquestions.js"));
 
 app.use("/answerquestion", require("./routes/answerquestion.js"));
 
+app.use("/questionsperkeyword", require("./routes/keywordscount.js"));
+
 //app.use("/listhelp", require("./routes/listhelp.js"));
 
 // app.get("/panigiraki", (req,res) => {
