@@ -24,40 +24,12 @@ CREATE TABLE questions(
     constraint fk_user foreign key(uid) references users(uid) on delete no action
 );
 
---------------------------------------
-
-CREATE TABLE answers (
-    answerID serial PRIMARY KEY,
-    description varchar(1000),
-    date TIMESTAMPTZ NOT NULL DEFAULT NOW()
+CREATE TABLE answers(
+    aid serial primary key,
+    uid int,
+    qid int,
+    answer text not null,
+    aTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    constraint fk_user foreign key(uid) references users(uid) on delete no action,
+    constraint fk_question foreign key(qid) references questions(qid) on delete no action
 );
-
-CREATE TABLE keyword (
-    name PRIMARY KEY
-);
-
-
-
-
-/* One to many relationship */
-
-ALTER TABLE
-    answers
-ADD CONSTRAINT
-    userID
-FOREIGN KEY (uid) REFERENCES users
-
-ALTER TABLE
-    answers
-ADD CONSTRAINT
-    questionID
-FOREIGN KEY (questionID) REFERENCES questions
-/* Answers FK = userID, questionID  */
-
-
-/* One user makes many questions */
-ALTER TABLE
-    questions
-ADD CONSTRAINT
-    userID
-FOREIGN KEY (uid) REFERENCES users

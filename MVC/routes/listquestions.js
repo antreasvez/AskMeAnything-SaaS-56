@@ -18,7 +18,7 @@ router.get("/", async (req,res) => {
         "SELECT COUNT(qid) FROM questions"
     );
 
-    //console.log(allquestions);
+    console.log(count);
 
     return res.render("listquestions.ejs", {allquestions: allquestions.rows})
 });

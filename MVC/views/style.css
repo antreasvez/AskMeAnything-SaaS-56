@@ -336,6 +336,14 @@ main.homePage {
     display: flex;
     border-bottom: 1px solid #eff0f1;
 }
+
+.littleQuestionCard {
+    display: inline;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    font-size: 10px;
+}
 .questionCardLeft {
     display: flex;
     align-items: center;

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Question</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <nav>
+        <p class="navTitle">ANSWER QUESTION</p>
+        <div class="signDiv">
+            <% if (!loggedIn) { %>
+                <a href="/login" class="login">Log in</a>
+                <a href="/signup" class="signup">Sign up</a>
+            <% } %>
+        </div>
+
+    </nav>
+    <main>
+        <form action="/answerquestion/<%= qid %>" method="POST" class="answerQuestionForm">
+            <p class="answerQuestion-title">
+                <%= question.question %>
+            </p>
+            <p class="answerQuestion-text">
+                <%= question.information %>
+            </p>
+            
+            
+
+
+          <label for="answerQuestion-body">Your Answer:</label>
+            <textarea name="text" id="answerQuestion-body" cols=" 30" rows="10"></textarea>
+           
+            <div class="answerQuestion-buttons">
+                <button type="submit">Submit Answer</button>
+                <a href="/questions">Go Back</a>
+            </div>
+        </form>
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>

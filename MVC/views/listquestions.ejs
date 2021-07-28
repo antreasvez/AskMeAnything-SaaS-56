@@ -47,7 +47,7 @@
                 </div>
                 <div class="questionCardRight">
                     <div class="questionCardTop">
-                        <a class="questionTitle" href="">
+                        <a class="questionTitle" href="/answerquestion/<%= allquestions[question].qid %>">
                             <%= allquestions[question].question %>
                         </a>
                         <p class="questionText">
@@ -62,7 +62,7 @@
                              
                         </div>
                         <p class="questionDate">
-                            answered at <%= allquestions[question].qtime %> <br> by <span><%= allquestions[question].username %></span>
+                            Asked at <%= allquestions[question].qtime %> <br> by <span><%= allquestions[question].username %></span>
                         </p>
                     </div>
                 </div>

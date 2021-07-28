@@ -86,7 +86,9 @@ app.use("/logout", require("./routes/logout.js"));
 
 app.use("/askquestion", require("./routes/askquestion.js"));
 
-app.use("/listquestions", require("./routes/listquestions.js"));
+app.use("/questions", require("./routes/listquestions.js"));
+
+app.use("/answerquestion", require("./routes/answerquestion.js"));
 
 //app.use("/listhelp", require("./routes/listhelp.js"));
 
