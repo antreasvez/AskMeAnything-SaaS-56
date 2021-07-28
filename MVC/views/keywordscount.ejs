@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questions per Keyword</title>
     <link rel="stylesheet" href="/styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 </head>
 
 <body>
@@ -19,19 +20,18 @@
             <% } %>
         </div>
 
-    
 
     </nav>
     <main>
 
-        <div class="container">
-            <canvas id="qpk" width="600" height="600"></canvas>
+        <div class="answerQuestionForm">
+            <canvas id="qpk"></canvas>
         </div>
 
         <script>
-            let qpk = document.getElementById('qpk').getContext('2d');
+            var qpk = document.getElementById('qpk').getContext('2d');
 
-            let qpkChart = new Chart(qpk, {
+            var qpkChart = new Chart(qpk, {
 
                 type: 'bar',
                 data: {
@@ -41,11 +41,12 @@
                         data: ['<%= tags[0].count %>', '<%= tags[1].count %>', '<%= tags[2].count %>', '<%= tags[3].count %>', '<%= tags[4].count %>', '<%= tags[5].count %>', '<%= tags[6].count %>'],
                         backgroundColor: [
                             'rgba(6, 59, 255, 0.73)',
-                            'rgba(23, 81, 217, 0.71)',
-                            'rgba(30, 91, 207, 0.69)',
-                            'rgba(38, 121, 209, 0.56)',
+                            'rgba(23, 81, 217, 0.62)',
+                            'rgba(30, 91, 207, 0.56)',
+                            'rgba(38, 121, 209, 0.46)',
                             'rgba(24, 123, 196, 0.34)',
-                            'rgba(31, 121, 189, 0.32)',                           
+                            'rgba(31, 121, 189, 0.33)',
+                            'rgba(74, 152, 204, 0.25)',                           
                         ],
                         borderColor: [
                             'rgba(6, 59, 255, 1)',
@@ -54,6 +55,7 @@
                             'rgba(38, 121, 209, 1)',
                             'rgba(24, 123, 196, 1)',
                             'rgba(31, 121, 189, 1)',
+                            'rgba(74, 152, 204, 1)'
                         ],
                         borderWidth: 1
                     }]

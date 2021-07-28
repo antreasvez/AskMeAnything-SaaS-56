@@ -5,9 +5,11 @@ require('dotenv').config();
 
 router.get("/", async (req,res) => {
 
+    console.log("hello darkness my old friend ive come to talk");
+
     
     try {
-        const tagcount = await pool.query (
+        const tagcount = await pool.query(
             "SELECT tag, COUNT(*) AS count FROM (SELECT unnest(tags) FROM questions) as tag GROUP BY tag ORDER BY COUNT(*) DESC;"
         )
 
@@ -17,6 +19,9 @@ router.get("/", async (req,res) => {
         console.log(error.message);
         res.status(500).send("Server Error");
     }  
+
+    console.log(tagcount);
+    console.log("hello darkness my old friend");
 
     
 });
