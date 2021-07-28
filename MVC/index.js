@@ -88,6 +88,8 @@ app.use("/askquestion", require("./routes/askquestion.js"));
 
 app.use("/listquestions", require("./routes/listquestions.js"));
 
+//app.use("/listhelp", require("./routes/listhelp.js"));
+
 // app.get("/panigiraki", (req,res) => {
 //   return res.render('panigiraki.ejs');
 // });

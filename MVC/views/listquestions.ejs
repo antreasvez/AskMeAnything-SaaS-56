@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Questions</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
@@ -24,6 +24,7 @@
         <div class="questionsPageTop">
             <p class="totalQuestions">
                 21,466,329 questions, make dynamic
+                
             </p>
             <form action="">
                 <select name="filterByTag" id="filterByTag">
@@ -35,7 +36,7 @@
                 </select>
                 <button type="submit"><img src="img/search-solid.svg"></button>
             </form>
-            <a href="askaquestion.html">Ask Question</a>
+            <a href="/askquestion">Ask Question</a>
         </div>
         <% for (var question in allquestions) { %>
         <div class="questionCards">
@@ -61,7 +62,7 @@
                              
                         </div>
                         <p class="questionDate">
-                            answered at <%= allquestions[question].qTime %> 11PM <br> by <span><%= allquestions[question].username %></span>
+                            answered at <%= allquestions[question].qtime %> <br> by <span><%= allquestions[question].username %></span>
                         </p>
                     </div>
                 </div>

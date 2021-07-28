@@ -11,16 +11,12 @@ router.get("/", async (req,res) => {
 
 
     const allquestions = await pool.query(
-        "SELECT qid, questions.uid, users.uid, question, information, tags, qtime,  users.username FROM questions, users WHERE questions.uid = users.uid ;"
+        "SELECT qid, questions.uid, users.uid, question, information, tags, qTime, users.username FROM questions, users WHERE questions.uid = users.uid ;"
     );   
-
-    const count = await pool.query(
-        "SELECT COUNT(qid) FROM questions"
-    );
 
     //console.log(allquestions);
 
-    return res.render("listquestions.ejs", {allquestions: allquestions.rows})
+    return res.render("listhelp.ejs", {allquestions: allquestions.rows})
 });
 
 
