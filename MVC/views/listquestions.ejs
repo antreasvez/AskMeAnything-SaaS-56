@@ -13,6 +13,7 @@
     <nav>
         <p class="navTitle">ALL QUESTIONS</p>
         <div class="signDiv">
+            <a href="/" class="signup">HOME</a>
             <% if (!loggedIn) { %>
                 <a href="/login" class="login">Log in</a>
                 <a href="/signup" class="signup">Sign up</a>
@@ -24,7 +25,9 @@
         <div class="questionsPageTop">
             <p class="totalQuestions">
                 21,466,329 questions, make dynamic
-                
+                <% if (!loggedIn) { %>
+                    <br><span class="sudolink" onclick="location='/login'">Login</span> to answer them or view details!
+                <% } %>  
             </p>
             <form action="">
                 <select name="filterByTag" id="filterByTag">
@@ -47,12 +50,19 @@
                 </div>
                 <div class="questionCardRight">
                     <div class="questionCardTop">
-                        <a class="questionTitle" href="/answerquestion/<%= allquestions[question].qid %>">
-                            <%= allquestions[question].question %>
-                        </a>
+                        <% if (loggedIn){ %>
+                            <a class="questionTitle" href="/answerquestion/<%= allquestions[question].qid %>">
+                                <%= allquestions[question].question %>
+                            </a>
+                        <% } else { %>
+                            <p class="questionTitle">
+                                <%= allquestions[question].question %>
+                            </p>
+                        <% } %>
+
                         <p class="questionText">
                             <%= allquestions[question].information %>
-                         </p>
+                        </p>
                     </div>
                     <div class="questionCardBottom">
                         <div class="questionTags">

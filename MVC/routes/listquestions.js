@@ -5,10 +5,9 @@ require('dotenv').config();
 
 router.get("/", async (req,res) => {
 
-    if (!req.session.isLoggedIn){
-        return res.redirect("/login");
-    }
-
+    // if (!req.session.isLoggedIn){
+    //     return res.redirect("/login");
+    // }
 
     const allquestions = await pool.query(
         "SELECT qid, questions.uid, users.uid, question, information, tags, qtime,  users.username FROM questions, users WHERE questions.uid = users.uid ;"

@@ -9,8 +9,6 @@ router.get("/", (req,res) => {
         return res.redirect("/login");
     }
 
-    //optional, redirect if not logged in, to be decieded
-
     return res.render("askquestion.ejs");
 });
 

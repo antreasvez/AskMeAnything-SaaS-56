@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Questions per Keyword</title>
+    <title>Questions per Period</title>
     <link rel="stylesheet" href="/styles/style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 </head>
@@ -18,7 +18,7 @@
             <a href="/login" class="login">Log in</a>
             <a href="/signup" class="signup">Sign up</a>
             <% } %>
-            <a href="/" class="signup">HOME</a>
+            <a href="/" class="login">HOME</a>
         </div>
 
 
@@ -27,18 +27,18 @@
 
         <div class="answerQuestionForm">
         
-            <canvas id="qpk"></canvas>
+            <canvas id="qpp"></canvas>
         
         </div>
 
         <script>
-            var qpk = document.getElementById('qpk').getContext('2d');
+            var qpk = document.getElementById('qpp').getContext('2d');
 
-            var qpkChart = new Chart(qpk, {
+            var qppChart = new Chart(qpk, {
 
                 type: 'bar',
                 data: {
-                    labels: ['<%= tags[0].tag %>', '<%= tags[1].tag %>', '<%= tags[2].tag %>', '<%= tags[3].tag %>', '<%= tags[4].tag %>', '<%= tags[5].tag %>', '<%= tags[6].tag %>'],
+                    labels: ['<%= day1[0].count %>', '<%= day1[2].count %>', '<%= day1[3].count %>', '<%= day1[4].count %>', '<%= day1[5].count %>', '<%= day1[6].count %>', '<%= day1[7].count %>', ],
                     datasets: [{
                         label: 'Popular keywords by count',
                         data: ['<%= tags[0].count %>', '<%= tags[1].count %>', '<%= tags[2].count %>', '<%= tags[3].count %>', '<%= tags[4].count %>', '<%= tags[5].count %>', '<%= tags[6].count %>'],
@@ -77,8 +77,7 @@
                     },
                     title: {
                         display: true,
-                        text: "Popular Keywords by Count",
-                        fontSize: 22
+                        text: "# of Questions asked in the latest period (7 days)"
                     }
                 }
 

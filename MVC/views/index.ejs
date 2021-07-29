@@ -11,19 +11,26 @@
 
 <body>
     <nav>
-        <p class="navTitle">Ask Me Anything (56)</p>
-
+        <div>
+            <p class="monkaTitle"> Ask Me Anything (56)</p>
+        </div>
         <!-- <div class="signDiv">
             <a href="/login" class="login">Log In</a>
             <a href="/signup" class="signup">Sign Up</a>
         </div> -->
+        <p class="navTitle"> &nbsp </p>
 
         <% if (loggedIn){ %>
             <div class="signDiv">
-                <form action="/logout" method="POST" class="loginForm">
+                <form action="/logout" method="POST" class="monkaForm">
                     <button type="submit">LOG OUT</button>
                 </form>
+                <form action="/signup" class="monkaForm">
+                    <button type="submit">MY AMA</button>
+                </form>
+                
             </div>
+
         <% } else { %>
             <div class="signDiv">
                 <a href="/login" class="login">Log In</a>

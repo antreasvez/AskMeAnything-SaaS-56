@@ -13,6 +13,7 @@
     <nav>
         <p class="navTitle">ASK A QUESTION</p>
         <div class="signDiv">
+            <a href="/" class="signup">HOME</a>
             <% if (!loggedIn) { %>
             <a href="/login" class="login">Log in</a>
             <a href="/signup" class="signup">Sign up</a>
@@ -39,7 +40,7 @@
             </label>
             <input type="text" id="askQuestion-tags" name="keywords"
                 placeholder="e.g. (python swift django)">
-            <button type="submit">Review your question</button>
+            <button type="submit">Submit Question</button>
         </form>
        
     </main>

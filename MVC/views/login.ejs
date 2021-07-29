@@ -12,13 +12,16 @@
 <body>
     <nav>
         <p class="navTitle">LOG IN</p>
+        
         <div class="signDiv">
-            <a href="/login" class="login">Log in</a>
-            <a href="/signup" class="signup">Sign up</a>
+            <a href="/" class="signup">Home</a>
         </div>
+        
+            
 
     </nav>
     <main>
+        <% if (!loggedIn) { %>
         <form action="/login" method="POST" class="loginForm">
 
             <label for="login-username">
@@ -37,14 +40,19 @@
                  Sign up
             </a>
 
-            <div class="signDiv">
-                <a href="/" class="login" position="center">Home</a>
-            </div>
         </p>
+        <% } else { %>
+                <div class="loginForm">
+                    <h1 position="center">YOU ARE ALLREADY</h1> 
+                    <h1>LOGGED IN IN</h1>
+                    
+                    <div class="signDiv"><a href="/" class="signup" position="center">Home</a>
+                    </div>
 
-        <!-- <div class="signDiv">
-            <a href="/" class="login" position="center">Home</a>
-        </div> -->
+                </div>
+        
+        <% } %>
+
 
 
     </main>
