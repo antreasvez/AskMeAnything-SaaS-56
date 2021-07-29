@@ -5,44 +5,66 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ask A Question</title>
+    <title>My Ask me Anything (56)</title>
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
     <nav>
-        <p class="navTitle">ASK A QUESTION</p>
-        <div class="signDiv">
-            <a href="/" class="signup">HOME</a>
-            <% if (!loggedIn) { %>
-            <a href="/login" class="login">Log in</a>
-            <a href="/signup" class="signup">Sign up</a>
-            <% } %>
+        <div>
+            <p class="monkaTitle"> Welcome to: My Ask Me Anything (56)<br> <%= user.username %></p>
+        </div>
+        <p class="navTitle"> &nbsp </p>
+
+        
+         <div class="signDiv">
+            <form action="/logout" method="POST" class="monkaForm">
+                <button type="submit">LOG OUT</button>
+            </form>
+            <form action="/" class="monkaForm">
+                <button type="submit">HOME</button>
+            </form>
+                
         </div>
 
-    
+        
 
     </nav>
-    <main>
 
-        <form action="/askquestion" method="POST" class="askQuestionForm">
-            <label for="askQuestion-title">
-                <b>Question</b> <br>be specific and imagine you're asking a question to another person
-            </label>
-            <input type="text" id="askQuestion-title" name="question"
-                placeholder="e.g. how can you calculate the mass of the sun?">
-            <label for="askQuestion-body">
-                <b>Information</b> <br>Include all the information someone would need to answer your question
-            </label>
-            <textarea name="information" id="askQuestion-body cols=" 30" rows="10"></textarea>
-            <label for="askQuestion-tags">
-                <b>Tags</b> <br>Add up to 5 tags to describe what your question is about, <b>separate them with commas!</b>
-            </label>
-            <input type="text" id="askQuestion-tags" name="keywords"
-                placeholder="e.g. (python swift django)">
-            <button type="submit">Submit Question</button>
-        </form>
-       
+    </nav>
+    <main class="homePage">
+        <div class="cards">
+            <a class="card">
+                <img src="img/questionWhite.svg" alt="" class="cardImg">
+                <p class="cardTitle">
+                    My total Questions: <%= totalQ %>
+                </p>
+                <p class="cardTitle">
+                    My Questions for Today: <%= todayQ %>
+                </p>
+            </a>
+            <a class="card">
+                <img src="img/answerWhite.svg" alt="" class="cardImg">
+                <p class="cardTitle">
+                    My total Answers: <%= totalA %>
+                </p>
+                <p class="cardTitle">
+                    My Answers for Today: <%= todayA %>
+                </p>
+            </a>
+            <a class="card" href="/askquestion">
+                <img src="img/question-mark.svg" alt="" class="cardImg">
+                <p class="cardTitle">
+                    Ask a Question
+                </p>
+            </a>
+            <a class="card" href="/questions">
+                <img src="img/conversation.svg" alt="" class="cardImg">
+                <p class="cardTitle">
+                    All Questions
+                </p>
+            </a>
+        </div>
     </main>
 
     <footer>

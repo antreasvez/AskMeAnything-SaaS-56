@@ -14,12 +14,16 @@ router.get("/", async (req,res) => {
     );   
 
     const count = await pool.query(
-        "SELECT COUNT(qid) FROM questions"
+        "SELECT COUNT(*) FROM questions;"
     );
 
-    console.log(count);
+    // const answers = await pool.query(
+    //     "SELECT"
+    // )
 
-    return res.render("listquestions.ejs", {allquestions: allquestions.rows})
+
+
+    return res.render("listquestions.ejs", {allquestions: allquestions.rows, cq: count.rows[0].count})
 });
 
 
