@@ -29,7 +29,7 @@
                     <br><span class="sudolink" onclick="location='/login'">Login</span> to answer them or view details!
                 <% } %>  
             </p>
-            <form action="">
+            <!-- <form action="">
                 <select name="filterByTag" id="filterByTag">
                     <option value="any">choose a spesific question</option>
                     <option value="flutter">flutter</option>
@@ -38,7 +38,7 @@
                     <option value="css">css</option>
                 </select>
                 <button type="submit"><img src="img/search-solid.svg"></button>
-            </form>
+            </form> -->
             <a href="/askquestion">Ask Question</a>
         </div>
         <% for (var question in allquestions) { %>
@@ -46,7 +46,7 @@
         
                 <div class="questionCard">
                 <div class="questionCardLeft">
-                       <p class="AnswerCounter">0 <br> answers</p>
+                    <a href="/answerquestion/<%= allquestions[question].qid %>"><img src="img/blu4.svg" position="center"></a>
                 </div>
                 <div class="questionCardRight">
                     <div class="questionCardTop">

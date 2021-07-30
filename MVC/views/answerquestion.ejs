@@ -29,8 +29,22 @@
                 <%= question.information %>
             </p>
             
-            
+            <% for (var ans in answers) { %>
+              
+                <div class="questionCards">
+                    <div class="questionCard">
+                        <div class="questionCardLeft">Answer: <%= answers[ans].aid %></div>
+                        <div class="questionCardRight">
+                            
+                                <%= answers[ans].answer %>
+                            
+                        </div>
+                        <div class="questionCardBottom"> Answered by <%= answers[ans].atime %></div>
+                    </div>    
+                </div>
 
+                
+            <% } %>
 
           <label for="answerQuestion-body">Your Answer:</label>
             <textarea name="text" id="answerQuestion-body" cols=" 30" rows="10"></textarea>

@@ -338,7 +338,7 @@ main.homePage {
 }
 
 .littleQuestionCard {
-    display: inline;
+    display: flex;
     align-items: center;
     padding: 10px;
     margin: 10px;
@@ -568,6 +568,13 @@ main.homePage {
     margin: 25px 0 35px 0;
 }
 
+.answerQuestion-kart {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border: 1px blue;
+}
+
 .answerQuestion-text::before {
     content: "❝";
     position: absolute;
@@ -705,3 +712,25 @@ footer a {
         margin-top: 30px;
     }
 }
+
+/* ******************************************************************************* */
+
+.kartaki {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border: 1px blue;
+}
+
+.kefalaki {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border: 1px red solid;
+}
+
+.komp {
+    padding: 2px 16px;
+}
+
+

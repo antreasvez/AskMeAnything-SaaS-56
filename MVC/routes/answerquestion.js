@@ -16,13 +16,13 @@ router.get("/:id", async (req,res) => {
         [qid]
     );
 
-    // const answers = await pool.query(
-    //     "SELECT aid, answers.uid, atime, qid, answer, users.username FROM answers, users WHERE answers.uid = users.uid, qid = $1 ORDER BY aid;",
-    //     [qid]
-    // );
+    const answers = await pool.query(
+        "SELECT aid, answers.uid, atime, qid, answer, users.username FROM answers, users WHERE answers.uid = users.uid AND qid = $1 ORDER BY aid;",
+        [qid]
+    );
 
 
-    return res.render("answerquestion.ejs", {qid: qid, question: question.rows[0]})
+    return res.render("answerquestion.ejs", {qid: qid, question: question.rows[0], answers: answers.rows})
 });
 
 router.post("/:id", async (req, res) => {

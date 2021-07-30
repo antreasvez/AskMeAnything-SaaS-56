@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Question</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav>
+        <p class="navTitle">ANSWER QUESTION</p>
+        <div class="signDiv">
+            <a href="login.html" class="login">Log in</a>
+            <a href="signup.html" class="signup">Sign up</a>
+        </div>
+
+    </nav>
+    <main>
+        <form action="" class="answerQuestionForm">
+            <p class="answerQuestion-title">
+                Dart package to access MariaDb/Mysql with pool connection
+            </p>
+            <p class="answerQuestion-text">
+                I would like an indication for a mysql/mariadb connection package with
+                connection pooling. I
+                want to use it with Dart on the backend.
+            </p>
+            <div class="answerQuestion-others">
+                other answers, if avaible, can be shown here
+            </div>
+
+
+          <label for="answerQuestion-body">Your Answer:</label>
+            <textarea name="" id="answerQuestion-body" cols=" 30" rows="10"></textarea>
+           
+            <div class="answerQuestion-buttons">
+                <button type="submit">Submit Answer</button>
+                <a href="questions.html">Never Mind</a>
+            </div>
+        </form>
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>
+
+
+<div class="cards">
+    <div class="card card-1">
+      <div class="card__icon"><i class="fas fa-bolt"></i></div>
+      <p class="card__exit"><i class="fas fa-times"></i></p>
+      <h2 class="card__title">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h2>
+      <p class="card__apply">
+        <a class="card__link" href="#">Apply Now <i class="fas fa-arrow-right"></i></a>
+      </p>
+    </div>
+
+
+    <div class="questionCards">
+        <div class="questionCard">
+            <div class="littleQuestionCard">
+                <p class="questionText">
+                    <%= answers[ans].answer %>
+                </p>
+
+            </div>
+        </div>    
+    </div>
