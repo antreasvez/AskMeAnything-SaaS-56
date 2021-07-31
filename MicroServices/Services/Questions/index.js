@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 // Post a Question
 app.use("/postQuestion", require("./routes/postQuestion.js"));
 
-// Get all questions
+// // Get all questions
 app.use("/getQuestions", require("./routes/getQuestions.js"));
 
 

@@ -9,8 +9,8 @@ app.use(express.urlencoded({ extended: true }));
 // Post an answer
 app.use("/postAnswer", require("./routes/postAnswer.js"));
 
-// Get answers per QuestionID
-app.use("/getAnswers", require("./routes/getAnswers.js"));
+// // Get answers per QuestionID
+// app.use("/getAnswers", require("./routes/getAnswers.js"));
 
 
 //Port
