@@ -8,7 +8,7 @@ router.get("/", async (req,res) => {
 try{
 
   const allquestions = await pool.query(
-      "SELECT * FROM questions;"
+      "SELECT questionID,userID,email,title,question_text,keywords,to_char(date_created, 'HH12:MI:SS TZ') as date_created FROM questions;"
   );
   res.json(allquestions)
   

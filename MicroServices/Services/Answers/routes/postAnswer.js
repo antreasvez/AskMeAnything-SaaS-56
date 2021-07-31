@@ -6,7 +6,7 @@ router.get("/:id", async (req,res) => {
     try{
       const questionID = req.params.id;
       const answers = await pool.query(
-          "SELECT answerID, userID, email, questionID, answer_text, to_char(answered_on, 'HH12:MI:SS TZ') FROM answers where questionID=$1;",
+          "SELECT answerID, userID, email, questionID, answer_text, to_char(answered_on, 'HH12:MI:SS TZ') as answered_on FROM answers where questionID=$1;",
           [questionID]
       );
       res.json(answers)
