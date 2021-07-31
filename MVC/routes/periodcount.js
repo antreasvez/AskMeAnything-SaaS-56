@@ -55,6 +55,7 @@ router.get("/", async (req,res) => {
         "SELECT EXTRACT(month FROM current_date-interval '144 hours') AS month, EXTRACT(day FROM current_date-interval '144 hours') AS day;"
     )
 
+    
 
     return res.render("periodcount.ejs", {day1: day1.rows, day2: day2.rows, day3: day3.rows, day4: day4.rows, day5: day5.rows, day6: day6.rows, day7: day7.rows, lday1: lday1.rows, lday2: lday2.rows, lday3: lday3.rows, lday4: lday4.rows, lday5: lday5.rows, lday6: lday6.rows, lday7: lday7.rows})
 
