@@ -6,7 +6,7 @@ const pool = require("../db.js");
 router.get("/", async (req,res) => {
 
   const day7 = await pool.query(
-      "SELECT count(*) FROM questions WHERE date_created >= CURRENT_DATE - integer '1' ;"
+      "SELECT count(*) FROM questions WHERE qtime >= current_date - integer '1' ;"
   )
   const day6 = await pool.query(
       "SELECT count(*) FROM questions WHERE date_created >= CURRENT_DATE - integer '2' and date_created <= CURRENT_DATE - integer '1';"
