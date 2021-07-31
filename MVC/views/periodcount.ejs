@@ -38,10 +38,24 @@
 
                 type: 'bar',
                 data: {
-                    labels: ['1', '2', '3', '4', '5', '6', '7'],
+                    labels: [
+                        '<%= lday1[0].day %> / <%= lday1[0].month %>', 
+                        '<%= lday2[0].day %> / <%= lday2[0].month %>', 
+                        '<%= lday3[0].day %> / <%= lday3[0].month %>',
+                        '<%= lday4[0].day %> / <%= lday4[0].month %>', 
+                        '<%= lday5[0].day %> / <%= lday5[0].month %>', 
+                        '<%= lday6[0].day %> / <%= lday6[0].month %>', 
+                        '<%= lday7[0].day %> / <%= lday7[0].month %>'],
                     datasets: [{
-                        label: 'Popular keywords by count',
-                        data: ['<%= day1[0].count %>', '<%= day1[2].count %>', '<%= day1[3].count %>', '<%= day1[4].count %>', '<%= day1[5].count %>', '<%= day1[6].count %>', '<%= day1[7].count %>'],
+                        label: '# of Questions for the day',
+                        data: [
+                            '<%= day1[0].count %>',
+                            '<%= day2[0].count %>',
+                            '<%= day3[0].count %>',
+                            '<%= day4[0].count %>',
+                            '<%= day5[0].count %>',
+                            '<%= day6[0].count %>',
+                            '<%= day7[0].count %>'],
                         backgroundColor: [
                             'rgba(6, 59, 255, 0.73)',
                             'rgba(23, 81, 217, 0.62)',

@@ -85,7 +85,7 @@ app.use("/answerquestion", require("./routes/answerquestion.js"));
 
 app.use("/questionsperkeyword", require("./routes/keywordscount.js"));
 
-app.use("/questionsperperiod", require("./routes/sotc.js"));
+app.use("/questionsperperiod", require("./routes/periodcount.js"));
 
 app.use("/myama", require("./routes/myama.js"));
 

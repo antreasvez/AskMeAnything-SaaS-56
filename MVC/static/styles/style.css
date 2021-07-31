@@ -753,7 +753,7 @@ footer a {
 }
 
 .monkaForm * {
-    width: 150px;
+    width: 80px;
     white-space: nowrap;
 }
 .monkaForm label {
@@ -761,7 +761,7 @@ footer a {
 }
 .monkaForm input {
     margin-bottom: 5px;
-    height: 40px;
+    height: 433px;
     border-radius: 5px;
     padding: 5px 5px;
     outline: none;
@@ -771,9 +771,9 @@ footer a {
     border-color: var(--c4);
 }
 .monkaForm button {
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
-    height: 40px;
+    height: 30px;
     border: 1px solid var(--c4);
     color: white;
     opacity: 0.9;
