@@ -20,11 +20,12 @@ app.use(express.static("static"));
 
 
 const sessionDBaccess = new sessionPool({
-  user: "postgres",
-  password: "123454",
-  host: "localhost",
+  user: "ekcgprfmlwnvaq",
+  password: "6da1d81ac1d5b390899d4301f234877642b069b8a98cdd2ae9f28b8c8f5c7b35",
+  host: "ec2-54-155-35-88.eu-west-1.compute.amazonaws.com",
   port: 5432,
-  database: "askmeanything"
+  database: "dm7epcjt5t5bl",
+  ssl: { rejectUnauthorized: false}
 });
 
 
