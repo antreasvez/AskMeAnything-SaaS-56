@@ -6,25 +6,25 @@ const pool = require("../db.js");
 router.get("/", async (req,res) => {
 
     const day7 = await pool.query(
-        "SELECT count() FROM questions WHERE qtime >= current_date - interval '24 hours';"
+        "SELECT count() FROM questions WHERE date_created >= current_date - interval '24 hours';"
     )
     const day6 = await pool.query(
-        "SELECT count() FROM questions WHERE qtime >= current_date - interval '48 hours' and qtime <= current_date - interval '24 hours';"
+        "SELECT count() FROM questions WHERE date_created >= current_date - interval '48 hours' and date_created <= current_date - interval '24 hours';"
     )
     const day5 = await pool.query(
-        "SELECT count() FROM questions WHERE qtime >= current_date - interval '72 hours' and qtime <= current_date - interval '48 hours';"
+        "SELECT count() FROM questions WHERE date_created >= current_date - interval '72 hours' and date_created <= current_date - interval '48 hours';"
     )
     const day4 = await pool.query(
-        "SELECT count() FROM questions WHERE qtime >= current_date - interval '96 hours' and qtime <= current_date - interval '72 hours';"
+        "SELECT count() FROM questions WHERE date_created >= current_date - interval '96 hours' and date_created <= current_date - interval '72 hours';"
     )
     const day3 = await pool.query(
-        "SELECT count() FROM questions WHERE qtime >= current_date - interval '120 hours' and qtime <= current_date - interval '96 hours';"
+        "SELECT count() FROM questions WHERE date_created >= current_date - interval '120 hours' and date_created <= current_date - interval '96 hours';"
     )
     const day2 = await pool.query(
-        "SELECT count() FROM questions WHERE qtime >= current_date - interval '144 hours' and qtime <= current_date - interval '120 hours';"
+        "SELECT count() FROM questions WHERE date_created >= current_date - interval '144 hours' and date_created <= current_date - interval '120 hours';"
     )
     const day1 = await pool.query(
-        "SELECT count(*) FROM questions WHERE qtime >= current_date - interval '168 hours' and qtime <= current_date - interval '144 hours';"
+        "SELECT count(*) FROM questions WHERE date_created >= current_date - interval '168 hours' and date_created <= current_date - interval '144 hours';"
     )
 
 
