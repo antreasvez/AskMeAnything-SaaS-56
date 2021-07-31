@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions per Keyword</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <p class="navTitle">Questions Per Keyword</p>
+        <div class="signDiv">
+            <% if (!loggedIn) { %>
+            <a href="/login" class="login">Log in</a>
+            <a href="/signup" class="signup">Sign up</a>
+            <% } %>
+            <a href="/" class="signup">HOME</a>
+        </div>
+
+
+    </nav>
+    <main>
+
+        <div class="answerQuestionForm">
+            <canvas id="qpk"></canvas>
+        </div>
+
+        <script>
+            var qpk = document.getElementById('qpk').getContext('2d');
+
+            var qpkChart = new Chart(qpk, {
+
+                type: 'bar',
+                data: {
+                    labels: [
+                        '<%= tags[0].tag %>', 
+                        '<%= tags[1].tag %>', 
+                        '<%= tags[2].tag %>', 
+                        '<%= tags[3].tag %>', 
+                        '<%= tags[4].tag %>', 
+                        '<%= tags[5].tag %>', 
+                        '<%= tags[6].tag %>'],
+                    datasets: [{
+                        label: 'instances of tag',
+                        data: [
+                            '<%= tags[0].count %>', 
+                            '<%= tags[1].count %>', 
+                            '<%= tags[2].count %>', 
+                            '<%= tags[3].count %>', 
+                            '<%= tags[4].count %>', 
+                            '<%= tags[5].count %>', 
+                            '<%= tags[6].count %>'],
+                        backgroundColor: [
+                            'rgba(6, 59, 255, 0.73)',
+                            'rgba(23, 81, 217, 0.62)',
+                            'rgba(30, 91, 207, 0.56)',
+                            'rgba(38, 121, 209, 0.46)',
+                            'rgba(24, 123, 196, 0.34)',
+                            'rgba(31, 121, 189, 0.33)',
+                            'rgba(74, 152, 204, 0.25)',                           
+                        ],
+                        borderColor: [
+                            'rgba(6, 59, 255, 1)',
+                            'rgba(23, 81, 217, 1)',
+                            'rgba(30, 91, 207, 1)',
+                            'rgba(38, 121, 209, 1)',
+                            'rgba(24, 123, 196, 1)',
+                            'rgba(31, 121, 189, 1)',
+                            'rgba(74, 152, 204, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                stepSize: 1
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: "Popular Keywords by Count",
+                        fontSize: 22
+                    }
+                }
+
+            });
+
+
+
+        </script>
+       
+    </main>
+
+    <footer>
+        <div class="footerLinks">
+            <div>
+                <p class="linksTitle">
+                    PROJECT
+                </p>
+                <a href="https://github.com/antreasvez/AskMeAnything-SaaS-56/tree/main/documentation" class="footerLink">Documentation</a>
+                <a href="https://github.com/antreasvez/AskMeAnything-SaaS-56" class="footerLink">Github Link</a>
+                <a href="https://courses.pclab.ece.ntua.gr/course/view.php?id=34" class="footerLink">Course Materials</a>
+                <a href="https://hub.softlab.ntua.gr/hub/projects/saas-56" class="footerLink">YouTrack</a>
+            </div>
+            <div>
+                <p class="linksTitle">ABOUT US</p>
+                <div class="contact">
+                    <b>Stathis:</b>
+                    <p>5th Year ECE student, Y, L, O specialization </p>
+                    <p>Interested in Economics, Digital Policy and IR</p>
+                    <p>&nbsp</p>
+                    <b>Andreas:</b>
+                    <p>4th Year ECE student, Y, L, S specialization </p>
+                    <p>Interested in Signals, Robotics and ML</p>
+                </div>
+            </div>
+            <div>
+                <p href="" class="linksTitle">CONTACT US</p>
+                <div class="contact">
+                    <b>Address:</b>
+                    <p>National Technical UUniversity of Athens</p>
+                    <p>School of Electrical and Computer Engineering</p>
+                    <p>Hroon Polytechneiou 9, Athens, 15780</p>
+                    <p>&nbsp</p>
+                    <b>Email:</b>
+                    <p>el16801@mail.ntua.gr</p>
+                    <p>el17186@mail.ntua.gr</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="socialLinks">
+            <a href=""><img src="img/facebook-f-brands.svg" alt=""></a>
+            <a href=""><img src="img/twitter-brands.svg" alt=""></a>
+            <a href=""><img src="img/youtube-brands.svg" alt=""></a>
+            <a href=""><img src="img/instagram-brands.svg" alt=""></a>
+        </div>
+        <center>© SaaS (56) All Rights Reserved</center>
+    </footer>
+</body>
+
+</html>

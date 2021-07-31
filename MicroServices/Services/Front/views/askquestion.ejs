@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask A Question</title>
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+
+<body>
+    <nav>
+        <p class="navTitle">ASK A QUESTION</p>
+        <div class="signDiv">
+            <a href="/" class="signup">HOME</a>
+            <% if (!loggedIn) { %>
+            <a href="/login" class="login">Log in</a>
+            <a href="/signup" class="signup">Sign up</a>
+            <% } %>
+        </div>
+
+    
+
+    </nav>
+    <main>
+
+        <form action="/askquestion" method="POST" class="askQuestionForm">
+            <label for="askQuestion-title">
+                <b>Question</b> <br>be specific and imagine you're asking a question to another person
+            </label>
+            <input type="text" id="askQuestion-title" name="question"
+                placeholder="e.g. how can you calculate the mass of the sun?">
+            <label for="askQuestion-body">
+                <b>Information</b> <br>Include all the information someone would need to answer your question
+            </label>
+            <textarea name="information" id="askQuestion-body cols=" 30" rows="10"></textarea>
+            <label for="askQuestion-tags">
+                <b>Tags</b> <br>Add up to 5 tags to describe what your question is about, <b>separate them with commas!</b>
+            </label>
+            <input type="text" id="askQuestion-tags" name="keywords"
+                placeholder="e.g. (python swift django)">
+            <button type="submit">Submit Question</button>
+        </form>
+       
+    </main>
+
+    <footer>
+        <div class="footerLinks">
+            <div>
+                <p class="linksTitle">
+                    PROJECT
+                </p>
+                <a href="https://github.com/antreasvez/AskMeAnything-SaaS-56/tree/main/documentation" class="footerLink">Documentation</a>
+                <a href="https://github.com/antreasvez/AskMeAnything-SaaS-56" class="footerLink">Github Link</a>
+                <a href="https://courses.pclab.ece.ntua.gr/course/view.php?id=34" class="footerLink">Course Materials</a>
+                <a href="https://hub.softlab.ntua.gr/hub/projects/saas-56" class="footerLink">YouTrack</a>
+            </div>
+            <div>
+                <p class="linksTitle">ABOUT US</p>
+                <div class="contact">
+                    <b>Stathis:</b>
+                    <p>5th Year ECE student, Y, L, O specialization </p>
+                    <p>Interested in Economics, Digital Policy and IR</p>
+                    <p>&nbsp</p>
+                    <b>Andreas:</b>
+                    <p>4th Year ECE student, Y, L, S specialization </p>
+                    <p>Interested in Signals, Robotics and ML</p>
+                </div>
+            </div>
+            <div>
+                <p href="" class="linksTitle">CONTACT US</p>
+                <div class="contact">
+                    <b>Address:</b>
+                    <p>National Technical UUniversity of Athens</p>
+                    <p>School of Electrical and Computer Engineering</p>
+                    <p>Hroon Polytechneiou 9, Athens, 15780</p>
+                    <p>&nbsp</p>
+                    <b>Email:</b>
+                    <p>el16801@mail.ntua.gr</p>
+                    <p>el17186@mail.ntua.gr</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="socialLinks">
+            <a href=""><img src="img/facebook-f-brands.svg" alt=""></a>
+            <a href=""><img src="img/twitter-brands.svg" alt=""></a>
+            <a href=""><img src="img/youtube-brands.svg" alt=""></a>
+            <a href=""><img src="img/instagram-brands.svg" alt=""></a>
+        </div>
+        <center>© SaaS (56) All Rights Reserved</center>
+    </footer>
+</body>
+
+</html>

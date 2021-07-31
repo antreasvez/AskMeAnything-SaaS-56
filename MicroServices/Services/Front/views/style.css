@@ -1,0 +1,736 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+:root {
+    --c1: #66c2ff;
+    --c2: #1fa6ff;
+    --c3: #0098ff;
+    --c4: #007acc;
+    --c5: #004c7f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto";
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 5%;
+}
+.navTitle {
+    width: 100%;
+    text-align: center;
+    font-size: calc(12px + 2vw);
+    color: var(--c5);
+    font-weight: 700;
+}
+
+.signDiv {
+    display: flex;
+}
+.signDiv a {
+    display: block;
+    white-space: nowrap;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    opacity: 0.9;
+    transition: 0.1s;
+}
+.signDiv a:hover {
+    transition: 0.1s;
+    opacity: 1;
+}
+.signDiv .login {
+    border: 1px solid var(--c4);
+    color: var(--c4);
+    background-color: var(--c1);
+}
+
+.signDiv .signup {
+    border: 1px solid var(--c4);
+    color: white;
+    background-color: var(--c4);
+}
+main {
+    margin-bottom: 70px;
+}
+main.homePage {
+    margin-bottom: 0;
+    padding: 5% 0;
+}
+.cards {
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--c1);
+    width: 40%;
+    margin-bottom: 160px;
+    padding: 70px;
+    text-decoration: none;
+    font-size: 24px;
+    border-radius: 10px;
+    transition: 0.1s;
+}
+.card::after {
+    border-bottom-right-radius: 10px;
+    content: "";
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 7vw 7vw 0;
+    border-color: transparent var(--c1) transparent transparent;
+    position: absolute;
+    bottom: -6vw;
+    right: 0px;
+    transition: 0.1s;
+}
+.card:nth-child(even)::after {
+    left: 0;
+    border-width: 7vw 7vw 0 0;
+    border-color: var(--c1) transparent transparent transparent;
+}
+.card:nth-child(even):hover::after {
+    border-color: var(--c2) transparent transparent transparent;
+}
+.card:hover::after {
+    transition: 0.1s;
+
+    border-color: transparent var(--c2) transparent transparent;
+}
+.card:hover {
+    transition: 0.1s;
+    background-color: var(--c2);
+}
+.card:nth-child(odd) {
+    margin-right: 4%;
+}
+.cardImg {
+    width: 50%;
+    margin-bottom: 25px;
+}
+.cardTitle {
+    color: white;
+    text-decoration: none;
+}
+@media screen and (max-width: 727px) {
+    .cardTitle {
+        font-size: 14px;
+    }
+    .card {
+        padding: 30px 10px;
+        width: 43%;
+        margin-bottom: 50px;
+    }
+    .card:nth-child(odd) {
+        margin-right: 3%;
+    }
+
+    .signDiv a {
+        font-size: 14px;
+    }
+    .card::after {
+        border-bottom-right-radius: 5px;
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 9vw 9vw 0;
+        border-color: transparent var(--c1) transparent transparent;
+        position: absolute;
+        bottom: -5vw;
+        right: 0px;
+        transition: 0.1s;
+    }
+}
+
+/* ****************************************************** */
+
+.loginButtons {
+    margin: auto;
+}
+.loginButtons a {
+    background-color: #2f3337;
+    opacity: 0.95;
+    transition: 0.1s;
+    margin: auto;
+    width: min-content;
+    white-space: nowrap;
+    padding: 13px 100px;
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 5%), 0 20px 48px rgb(0 0 0 / 5%), 0 1px 4px rgb(0 0 0 / 10%);
+    margin-bottom: 10px;
+}
+
+.loginButtons a:hover {
+    opacity: 1;
+    transition: 0.1s;
+}
+.loginButtons svg {
+    margin-right: 5px;
+}
+.loginButtons a:first-child {
+    color: black;
+    background-color: #fff;
+}
+.loginButtons a:last-child {
+    background-color: #385499;
+}
+
+.loginForm {
+    border-radius: 5px;
+    padding: 30px;
+    width: min-content;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 5%), 0 20px 48px rgb(0 0 0 / 5%), 0 1px 4px rgb(0 0 0 / 10%);
+    margin-top: 30px;
+}
+.loginForm * {
+    width: 295px;
+    white-space: nowrap;
+}
+.loginForm label {
+    margin-bottom: 5px;
+}
+.loginForm input {
+    margin-bottom: 25px;
+    height: 40px;
+    border-radius: 5px;
+    padding: 5px 15px;
+    outline: none;
+    border: 1px solid var(--c5);
+}
+.loginForm input:focus {
+    border-color: var(--c4);
+}
+.loginForm button {
+    font-size: 16px;
+    cursor: pointer;
+    height: 40px;
+    border: 1px solid var(--c4);
+    color: white;
+    opacity: 0.9;
+    transition: 0.1s;
+    background-color: var(--c4);
+    border-radius: 5px;
+}
+.loginForm button:hover {
+    opacity: 1;
+    transition: 0.1s;
+}
+.goSignup {
+    text-align: center;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.goSignup a {
+    opacity: 0.9;
+    transition: 0.1s;
+    padding-left: 2px;
+    text-decoration: none;
+    color: var(--c4);
+}
+.goSignup a:hover {
+    opacity: 1;
+    transition: 0.1s;
+}
+
+/* ****************************************************** */
+
+.askQuestionForm {
+    border-radius: 5px;
+    padding: 30px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 5%), 0 20px 48px rgb(0 0 0 / 5%), 0 1px 4px rgb(0 0 0 / 10%);
+}
+.askQuestionForm * {
+    text-align: left;
+}
+.askQuestionForm input,
+.askQuestionForm textarea {
+    height: 40px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    padding: 5px 15px;
+    outline: none;
+    border: 1px solid var(--c5);
+}
+.askQuestionForm textarea {
+    resize: none;
+    height: 300px;
+}
+.loginaskQuestionFormForm input:focus {
+    border-color: var(--c4);
+}
+.askQuestionForm b {
+    font-size: 18px;
+}
+.askQuestionForm label {
+    margin-bottom: 5px;
+}
+.askQuestionForm button {
+    text-align: center;
+    margin-top: 20px;
+    width: min-content;
+    white-space: nowrap;
+    padding: 0 15px;
+    font-size: 16px;
+    cursor: pointer;
+    height: 40px;
+    border: 1px solid var(--c4);
+    color: white;
+    opacity: 0.9;
+    transition: 0.1s;
+    background-color: var(--c4);
+    border-radius: 5px;
+}
+.askQuestionForm button:hover {
+    opacity: 1;
+    transition: 0.1s;
+}
+@media screen and (max-width: 727px) {
+    .askQuestionForm label,
+    .askQuestionForm input {
+        font-size: 14px;
+    }
+    .askQuestionForm b {
+        font-size: 15px;
+    }
+    .askQuestionForm {
+        padding: 30px 15px;
+    }
+    .askQuestionForm label {
+        margin-bottom: 10px;
+    }
+}
+
+/* ************************************* */
+.questionCards {
+    padding: 0 7%;
+}
+.questionCard {
+    display: flex;
+    border-bottom: 1px solid #eff0f1;
+}
+
+.littleQuestionCard {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+    font-size: 10px;
+}
+.questionCardLeft {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+}
+.questionCardRight {
+    width: 100%;
+    padding: 20px;
+}
+.questionCardBottom {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.questionTags {
+    display: flex;
+    flex-wrap: wrap;
+    width: 50%;
+}
+.questionTitle {
+    font-size: 17px;
+    color: var(--c4);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 7px;
+}
+.questionText {
+    font-size: 13px;
+    color: #242729;
+}
+.questionTag {
+    margin: 2px;
+    font-size: 12px;
+    padding: 5px;
+    background-color: #e1ecf4;
+    color: var(--c5);
+}
+.questionDate {
+    font-size: 12px;
+
+    width: 50%;
+    text-align: right;
+    color: #848d95;
+}
+.questionDate span {
+    color: #555;
+}
+.questionsPageTop {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 30px 7%;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eff0f1;
+}
+.totalQuestions {
+    width: 100%;
+}
+.questionsPageTop a {
+    white-space: nowrap;
+    text-decoration: none;
+    background-color: var(--c4);
+    color: white;
+    opacity: 0.9;
+    transition: 0.1s;
+    border-radius: 3px;
+    padding: 14px 15px;
+}
+.questionsPageTop a:hover {
+    opacity: 1;
+    transition: 0.1s;
+}
+.questionsPageTop form {
+    display: flex;
+    padding: 10px 15px;
+    border-radius: 3px;
+    background-color: var(--c5);
+    margin-right: 20px;
+}
+.questionsPageTop select {
+    padding: 5px 15px;
+    outline: none;
+    border: none;
+    border-radius: 3px;
+}
+.questionsPageTop button {
+    margin-left: 12px;
+    background-color: var(--c5);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: 0.1s;
+}
+.questionsPageTop button:hover {
+    opacity: 1;
+    transition: 0.1s;
+}
+.questionsPageTop button img {
+    width: 20px;
+}
+
+@media screen and (max-width: 727px) {
+    .totalQuestions {
+        width: 100%;
+        text-align: center;
+        font-size: 14px !important;
+        margin-bottom: 10px;
+    }
+    .questionsPageTop {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-bottom: 0px;
+    }
+    .questionsPageTop * {
+        font-size: 13px;
+    }
+    .questionsPageTop button img {
+        width: 15px;
+    }
+    .questionsPageTop,
+    .questionCards {
+        padding: 10px 4%;
+    }
+    .questionsPageTop a {
+        padding: 14px 10px;
+    }
+    .questionsPageTop form {
+        margin-right: 5px;
+        padding: 9px;
+    }
+    .questionsPageTop select {
+        padding: 5px;
+    }
+    .questionCardLeft,
+    .questionCardRight {
+        padding: 20px 0px;
+    }
+    .questionCardLeft {
+        padding-right: 10px;
+    }
+}
+
+/* ******************************************* */
+.answerQuestionForm {
+    border-radius: 5px;
+    padding: 30px;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 25px rgb(0 0 0 / 5%), 0 20px 48px rgb(0 0 0 / 5%), 0 1px 4px rgb(0 0 0 / 10%);
+}
+
+.answerQuestionForm * {
+    text-align: left;
+}
+.answerQuestionForm input,
+.answerQuestionForm textarea {
+    height: 40px;
+    margin-bottom: 25px;
+    border-radius: 5px;
+    padding: 5px 15px;
+    outline: none;
+    border: 1px solid var(--c5);
+}
+.answerQuestionForm textarea {
+    resize: none;
+    height: 300px;
+}
+.loginanswerQuestionFormForm input:focus {
+    border-color: var(--c4);
+}
+.answerQuestionForm b {
+    font-size: 18px;
+}
+.answerQuestionForm label {
+    margin-bottom: 5px;
+}
+.answerQuestionForm button {
+    text-align: center;
+    width: min-content;
+    white-space: nowrap;
+    padding: 0 15px;
+    font-size: 16px;
+    cursor: pointer;
+    height: 40px;
+    border: 1px solid var(--c4);
+    color: white;
+    opacity: 0.9;
+    transition: 0.1s;
+    background-color: var(--c4);
+    border-radius: 5px;
+}
+.answerQuestionForm button:hover {
+    opacity: 1;
+    transition: 0.1s;
+}
+.answerQuestion-title {
+    color: #000;
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.answerQuestion-text,
+.answerQuestion-others {
+    padding: 20px;
+    border: 1px solid #ccc;
+    position: relative;
+    margin-bottom: 20px;
+}
+.answerQuestion-others {
+    background-color: #ccc;
+    border: 1px solid #bbb;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 25px 0 35px 0;
+}
+
+.answerQuestion-kart {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border: 1px blue;
+}
+
+.answerQuestion-text::before {
+    content: "❝";
+    position: absolute;
+    left: -7px;
+    top: -11px;
+    color: #333;
+    font-size: 33px;
+}
+.answerQuestion-text::after {
+    content: "❞";
+    position: absolute;
+    right: -7px;
+    bottom: -21px;
+    color: #333;
+    font-size: 33px;
+}
+.answerQuestion-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+    padding-left: 5px;
+}
+.answerQuestion-buttons a {
+    display: block;
+    text-decoration: none;
+    opacity: 0.9;
+    transition: 0.1s;
+    color: var(--c4);
+    margin-left: 10px;
+}
+.answerQuestion-buttons a:hover {
+    transition: 0.1s;
+    opacity: 1;
+}
+
+@media screen and (max-width: 727px) {
+    .answerQuestionForm label,
+    .answerQuestionForm input {
+        font-size: 14px;
+    }
+    .answerQuestionForm b {
+        font-size: 15px;
+    }
+    .answerQuestionForm {
+        padding: 30px 15px;
+    }
+    .answeQuestionForm label {
+        margin-bottom: 10px;
+    }
+}
+
+/* ******************************************** */
+footer {
+    background-color: var(--c5);
+    color: white;
+    padding: 5%;
+}
+
+.linksTitle {
+    color: white !important;
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+footer a {
+    color: #e8e8e8;
+    display: block;
+    text-decoration: none;
+}
+.footerLinks {
+    display: flex;
+    justify-content: space-between;
+}
+.footerLinks > div {
+    width: 100%;
+}
+.contact {
+    background-color: #003c64;
+    padding: 30px;
+    max-width: 500px;
+}
+.socialLinks {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.socialLinks img {
+    height: 30px;
+    opacity: 0.9;
+    transition: 0.1s;
+    margin: 10px;
+    position: relative;
+}
+.socialLinks a {
+    position: relative;
+    height: 35px;
+    width: 65px;
+}
+.socialLinks a::before {
+    content: "";
+    position: absolute;
+    left: -10px;
+    right: 0;
+    top: -7px;
+    bottom: 0;
+    margin: 10px;
+    height: 45px;
+    width: 45px;
+    border: 1px solid #eff0f1;
+    border-radius: 50%;
+}
+.socialLinks a:nth-child(1):before {
+    left: -14px;
+}
+.socialLinks a:nth-child(3):before {
+    left: -7px;
+}
+.socialLinks img:hover {
+    opacity: 1;
+    transition: 0.1s;
+}
+
+@media screen and (max-width: 1023px) {
+    .footerLinks {
+        flex-direction: column;
+        align-items: center;
+    }
+    .footerLinks > div {
+        margin: auto;
+    }
+    .socialLinks,
+    .linksTitle {
+        margin-top: 30px;
+    }
+}
+
+/* ******************************************************************************* */
+
+.kartaki {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border: 1px blue;
+}
+
+.kefalaki {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+    border: 1px red solid;
+}
+
+.komp {
+    padding: 2px 16px;
+}
+
+

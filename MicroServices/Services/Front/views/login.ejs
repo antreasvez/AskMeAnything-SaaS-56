@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <nav>
+        <p class="navTitle">LOG IN</p>
+        
+        <div class="signDiv">
+            <a href="/" class="signup">Home</a>
+        </div>
+        
+            
+
+    </nav>
+    <main>
+        <% if (!loggedIn) { %>
+        <form action="/login" method="POST" class="loginForm">
+
+            <label for="login-username">
+                Username
+            </label>
+            <input type="username" id="login-username" name="username">
+            <label for="login-password">
+                Password
+            </label>
+            <input type="password" id="login-password" name="password">
+            <button type="submit">Log in</button>
+        </form>
+        <p class="goSignup">
+            Don’t have an account? 
+            <a href="/signup">
+                 Sign up
+            </a>
+
+        </p>
+        <% } else { %>
+                <div class="loginForm">
+                    <h1 position="center">YOU ARE ALLREADY</h1> 
+                    <h1>LOGGED IN IN</h1>
+                    
+                    <div class="signDiv"><a href="/" class="signup" position="center">Home</a>
+                    </div>
+
+                </div>
+        
+        <% } %>
+
+
+
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>

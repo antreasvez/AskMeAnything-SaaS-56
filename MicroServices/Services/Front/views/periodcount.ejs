@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions per Period</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+</head>
+
+<body>
+    <nav>
+        <p class="navTitle">Questions Per Keyword</p>
+        <div class="signDiv">
+            <% if (!loggedIn) { %>
+            <a href="/login" class="login">Log in</a>
+            <a href="/signup" class="signup">Sign up</a>
+            <% } %>
+            <a href="/" class="login">HOME</a>
+        </div>
+
+
+    </nav>
+    <main>
+
+        <div class="answerQuestionForm">
+        
+            <canvas id="qpp"></canvas>
+        
+        </div>
+
+        <script>
+            var qpk = document.getElementById('qpp').getContext('2d');
+
+            var qppChart = new Chart(qpk, {
+
+                type: 'bar',
+                data: {
+                    labels: [
+                        '<%= lday1[0].day %> / <%= lday1[0].month %>', 
+                        '<%= lday2[0].day %> / <%= lday2[0].month %>', 
+                        '<%= lday3[0].day %> / <%= lday3[0].month %>',
+                        '<%= lday4[0].day %> / <%= lday4[0].month %>', 
+                        '<%= lday5[0].day %> / <%= lday5[0].month %>', 
+                        '<%= lday6[0].day %> / <%= lday6[0].month %>', 
+                        '<%= lday7[0].day %> / <%= lday7[0].month %>'],
+                    datasets: [{
+                        label: '# of Questions for the day',
+                        data: [
+                            '<%= day1[0].count %>',
+                            '<%= day2[0].count %>',
+                            '<%= day3[0].count %>',
+                            '<%= day4[0].count %>',
+                            '<%= day5[0].count %>',
+                            '<%= day6[0].count %>',
+                            '<%= day7[0].count %>'],
+                        backgroundColor: [
+                            'rgba(6, 59, 255, 0.73)',
+                            'rgba(23, 81, 217, 0.62)',
+                            'rgba(30, 91, 207, 0.56)',
+                            'rgba(38, 121, 209, 0.46)',
+                            'rgba(24, 123, 196, 0.34)',
+                            'rgba(31, 121, 189, 0.33)',
+                            'rgba(74, 152, 204, 0.25)',                           
+                        ],
+                        borderColor: [
+                            'rgba(6, 59, 255, 1)',
+                            'rgba(23, 81, 217, 1)',
+                            'rgba(30, 91, 207, 1)',
+                            'rgba(38, 121, 209, 1)',
+                            'rgba(24, 123, 196, 1)',
+                            'rgba(31, 121, 189, 1)',
+                            'rgba(74, 152, 204, 1)'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true,
+                                stepSize: 1
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: true,
+                        text: "# of Questions asked in the latest period (7 days)"
+                    }
+                }
+
+            });
+
+
+
+        </script>
+       
+    </main>
+
+    <footer>
+
+    </footer>
+</body>
+
+</html>
