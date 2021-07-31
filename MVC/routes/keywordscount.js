@@ -13,6 +13,8 @@ router.get("/", async (req,res) => {
             "SELECT tag, COUNT(*) AS count FROM (SELECT unnest(tags) FROM questions) as tag GROUP BY tag ORDER BY COUNT(*) DESC;"
         )
 
+        console.log(tagcount);
+
         return res.render("keywordscount.ejs", {tags: tagcount.rows});
     
     } catch (error) {

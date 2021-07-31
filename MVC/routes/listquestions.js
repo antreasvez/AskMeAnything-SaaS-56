@@ -10,7 +10,7 @@ router.get("/", async (req,res) => {
     // }
 
     const allquestions = await pool.query(
-        "SELECT qid, questions.uid, users.uid, question, information, tags, qtime,  users.username FROM questions, users WHERE questions.uid = users.uid ;"
+        "SELECT qid, questions.uid, users.uid, question, information, tags, to_char(qtime, 'YYYY-MM-DD HH24:MI:SS') as ftime,  users.username FROM questions, users WHERE questions.uid = users.uid ;"
     );   
 
     const count = await pool.query(

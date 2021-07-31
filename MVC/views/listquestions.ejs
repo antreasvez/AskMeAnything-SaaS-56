@@ -29,16 +29,7 @@
                     <br><span class="sudolink" onclick="location='/login'">Login</span> to answer them or view details!
                 <% } %>  
             </p>
-            <!-- <form action="">
-                <select name="filterByTag" id="filterByTag">
-                    <option value="any">choose a spesific question</option>
-                    <option value="flutter">flutter</option>
-                    <option value="mysql">mysql</option>
-                    <option value="php">php</option>
-                    <option value="css">css</option>
-                </select>
-                <button type="submit"><img src="img/search-solid.svg"></button>
-            </form> -->
+            
             <a href="/askquestion">Ask Question</a>
         </div>
         <% for (var question in allquestions) { %>
@@ -72,7 +63,7 @@
                              
                         </div>
                         <p class="questionDate">
-                            Asked at <%= allquestions[question].qtime %> <br> by <span><%= allquestions[question].username %></span>
+                            Asked at <%= allquestions[question].ftime %> <br> by <span><%= allquestions[question].username %></span>
                         </p>
                     </div>
                 </div>
