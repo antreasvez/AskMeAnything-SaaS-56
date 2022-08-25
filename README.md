@@ -1,18 +1,18 @@
 # AskMeAnything 2020-2021 Semester Project
 
 ## SaaS 56 Team
-- Ανδρέας Βεζάκης - 03117186
-- Στάθης Σαραντινόπουλος - 03116801
+- [Antreas Vezakis](https://github.com/antreasvez)
+- [Stathis Sarantinopoulos](https://github.com/Esarant)
 
 ## MVC hosted website:
-
+### You can see the live version of our app on:
 - https://saas56mvc.herokuapp.com/
 
 ## Installation notes:
 
 - Node.js ver 12+ required
 - PostgreSQL ver 6+ req
-- Download the repo.
+- Download the repo
 - Download PostgreSQL
 - Create the "askmeanything" database and the tables using the commands located in this file: https://github.com/antreasvez/AskMeAnything-SaaS-56/blob/main/MVC/database.sql
 - Go to the MVC folder 
